@@ -310,6 +310,7 @@ Vue.component('email-gate', {
 });
 Vue.component('first-view', {
     name: 'first-view',
+<<<<<<< HEAD
     template: '\n    \n   <div class="first_view">\n       <div class="orangeBarContainer">\n            <div class="questionsContainer" v-if="questions != \'\'">\n                <div class="questionBox" id="RsQuestions" >  \n                    <img src="../../assets/img/red_stripe-color.png" class="imgColor">  \n                    <img src="../../assets/img/red-stripe.png" class="imgNoneColor" >      \n                    <div class="question">{{questions[0].question1[0].question}}</div>  \n                    <div class="checks answersBox">\n                        <div v-for="v in questions[0].question1.answers" id="myForm"> \n                            <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()">\n                            <label for="questionOne">{{v.answer}}</label>\n                        </div>\n                    </div>\n                    <div class="button button-submit">\n                        <button @click="sendAnswers(\'rs\')" class="submitButton questionFormButton">Send</button> \n                    </div> \n                </div>\n\n                <div class="questionBox" id="BmQuestions">\n                    <img src="../../assets/img/moretti-color.png" class="imgColor" >  \n                    <img src="../../assets/img/moretti.png" class="imgNoneColor">   \n                    <div class="question">{{questions[1].question2[0].question}}</div>\n                    <div class="checks answersBox"> \n                        <div v-for="v in questions[1].question2.answers" id="myForm">  \n                            <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()"/>\n                            <label for="questionOne">{{v.answer}}</label>  \n                        </div> \n                    </div>\n                    <div class="button button-submit"> \n                        <button @click="sendAnswers(\'bm\')" class="submitButton questionFormButton">Send</button>\n                    </div> \n                </div>   \n                <div class="questionBox" id="TiQuestions" >  \n                    <img src="../../assets/img/tiger-color.png" class="imgColor">  \n                    <img src="../../assets/img/tiger.png" class="imgNoneColor">   \n                    <div class="question">{{questions[2].question3[0].question}}</div>\n                    <div class="checks answersBox"> \n                        <div v-for="v in questions[2].question3.answers" id="myForm" class="checks">\n                            <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()"/>\n                            <label for="questionOne">{{v.answer}}</label>  \n                        </div>\n                    </div>  \n                    <div class="button button-submit">  \n                        <button @click="sendAnswers(\'ti\')" class="submitButton questionFormButton">Send</button>  \n                    </div> \n                </div>\n            </div> \n            <div class="bottlesContainer">\n                <div>\n                    <img src="/assets/img/right_arrow.png" @click="changeBottle" class="arrow">\n                    <!-- <img src="/assets/img/right_arrow.png"> -->\n                    <img src="/assets/img/red-stripe-bottle.png" class="bottleCenter" :class="i==0?\'bottleVisible\':\'bottleInvisible\'"> \n                    <img src="/assets/img/tiger-bottle.png" class="bottleCenter" :class="i==1?\'bottleVisible\':\'bottleInvisible\'">\n                    <img src="/assets/img/moretti-bottle.png" class="bottleCenter" :class="i==2?\'bottleVisible\':\'bottleInvisible\'">\n                </div> \n                <div class="bottleLeftContainer"> \n                    <img src="/assets/img/orange_moretti.png" class="bottleLeft" :class="i==0?\'bottleVisible\':\'bottleInvisible\'">   \n                    <img src="/assets/img/orange_red_stripe.png" class="bottleLeft" :class="i==1?\'bottleVisible\':\'bottleInvisible\'">\n                    <img src="/assets/img/orange_tiger.png" class="bottleLeft" :class="i==2?\'bottleVisible\':\'bottleInvisible\'">\n                </div>\n                <div class="bottleRightContainer">\n                    <img src="/assets/img/orange_tiger.png" class="bottleRight" :class="i==0?\'bottleVisible\':\'bottleInvisible\'">    \n                    <img src="/assets/img/orange_moretti.png" class="bottleRight" :class="i==1?\'bottleVisible\':\'bottleInvisible\'">\n                    <img src="/assets/img/orange_red_stripe.png" class="bottleRight" :class="i==2?\'bottleVisible\':\'bottleInvisible\'">\n                </div> \n            </div> \n        </div> \n        <div class="bottomSection">\n                <div>\n                     \n                </div> \n                <div class="">  \n                    \n                </div>\n                <div class="">\n                    \n                </div> \n            </div> \n        <div>{{error_text}}</div>\n    </div>   \n    ',
     mixins: [data_mixin],
     data: function data() {
@@ -317,6 +318,23 @@ Vue.component('first-view', {
             i: 0,
             questions: '',
             error_text: ''
+=======
+    template: '\n    \n   <div class="first_view">\n        <div class="questionsContainer" v-if="questions != \'\'">\n            <div class="questionBox" id="RsQuestions" @mouseover="logoOnRs" @mouseleave="logoOffRs">  \n                <img src="../../assets/img/red_stripe-color.png" v-show="logoEnabledRs == true">  \n                <img src="../../assets/img/red-stripe.png" v-show="logoDisabledRs==true">     \n                <div class="question">{{questions[0].question1[0].question}}</div>  \n                <div class="checks">\n                    <div v-for="v in questions[0].question1.answers" id="myForm"> \n                        <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()">\n                        <label for="questionOne">{{v.answer}}</label>\n                    </div>\n                </div>\n                <div class="button button-submit">\n                    <button @click="sendAnswers(\'rs\')" class="submitButton">Send</button> \n                </div> \n            </div>\n\n            <div class="questionBox" id="BmQuestions" @mouseover="logoOnBm" @mouseleave="logoOffBm">\n                <img src="../../assets/img/moretti-color.png" v-show="logoEnabledBm == true">  \n                <img src="../../assets/img/moretti.png" v-show="logoDisabledBm==true">  \n                <div class="question">{{questions[1].question2[0].question}}</div>\n                <div class="checks">\n                    <div v-for="v in questions[1].question2.answers" id="myForm">  \n                        <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()"/>\n                        <label for="questionOne">{{v.answer}}</label> \n                    </div> \n                </div>\n                <div class="button button-submit"> \n                    <button @click="sendAnswers(\'bm\')" class="submitButton">Send</button>\n                </div> \n            </div>  \n            <div class="questionBox" id="TiQuestions" @mouseover="logoOnTi" @mouseleave="logoOffTi">  \n                <img src="../../assets/img/tiger-color.png" v-show="logoEnabledTi == true">  \n                <img src="../../assets/img/tiger.png" v-show="logoDisabledTi==true">   \n                <div class="question">{{questions[2].question3[0].question}}</div>\n                \n                    <div v-for="v in questions[2].question3.answers" id="myForm" class="checks">\n                        <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()"/>\n                        <label for="questionOne">{{v.answer}}</label>  \n                    </div>\n                \n                <div class="button button-submit"> \n                    <button @click="sendAnswers(\'ti\')" class="submitButton">Send</button> \n                </div> \n            </div>\n        </div>\n        <div>{{error_text}}</div>\n    </div>  \n    ',
+    mixins: [data_mixin],
+    data: function data() {
+        return {
+            questions: '',
+            error_text: '',
+            logoEnabledRs: false,
+            logoDisabledRs: true,
+            logoEnabledBm: false,
+            logoDisabledBm: true,
+            logoEnabledTi: false,
+            logoDisabledTi: true,
+            styleOn: {
+                'background-color': 'lightgrey'
+            }
+>>>>>>> 5d61e9188ce1147cb0dd9de404b7bca2696bd7e4
         };
     },
     computed: {},
@@ -374,12 +392,38 @@ Vue.component('first-view', {
                 $('input.chk').not(this).prop('checked', false);
             });
         },
+<<<<<<< HEAD
         changeBottle: function changeBottle() {
             if (this.i < 2) {
                 this.i++;
             } else {
                 this.i = 0;
             }
+=======
+        logoOnRs: function logoOnRs() {
+            this.logoEnabledRs = true;
+            this.logoDisabledRs = false;
+        },
+        logoOffRs: function logoOffRs() {
+            this.logoEnabledRs = false;
+            this.logoDisabledRs = true;
+        },
+        logoOnBm: function logoOnBm() {
+            this.logoEnabledBm = true;
+            this.logoDisabledBm = false;
+        },
+        logoOffBm: function logoOffBm() {
+            this.logoEnabledBm = false;
+            this.logoDisabledBm = true;
+        },
+        logoOnTi: function logoOnTi() {
+            this.logoEnabledTi = true;
+            this.logoDisabledTi = false;
+        },
+        logoOffTi: function logoOffTi() {
+            this.logoEnabledTi = false;
+            this.logoDisabledTi = true;
+>>>>>>> 5d61e9188ce1147cb0dd9de404b7bca2696bd7e4
         }
     },
     watch: {},
