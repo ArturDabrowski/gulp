@@ -1,0 +1,34 @@
+{
+  "name": "hnk-soccer-2018",
+  "version": "1.0.0",
+  "description": "HNK SOCCER 2018 HEATMAP",
+  "author": "michalk <michalk@lifeinmobile.com>",
+  "maintainers": [
+    {
+      "name": "",
+      "email": "",
+      "web": ""
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-image-optimization": "^0.1.3",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5"
+  }
+}

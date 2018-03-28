@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="post">
+        <input type="email" name="email" id="" placeholder="Email">
+        <select name="state" id="" placeholder="State">
+            <option :value="State" v-for="state in states">{{state}}</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

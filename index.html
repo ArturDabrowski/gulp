@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">    
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <title>Empty Template</title>
+
+</head>
+<body>
+    
+<nav>
+    <div class="hamburger-menu">
+        <a class="mobile-nav-ico js--mobile-nav-ico"><img src="assets/img/hamburger.png"></a>
+    </div>
+    <div class="full-menu">
+        <ul class="">
+            <li><a href="http://fivepointstradingcompany.com/" target="_blank">home</a></li>
+            <li><a href="http://fivepointstradingcompany.com/#brands" target="_blank">the brands</a></li>
+            <li><a href="http://fivepointstradingcompany.com/pressroom.html" target="_blank">press room</a></li>
+            <li><a href="#" class="active-page">uncap the world</a></li>
+            <li><a href="http://fivepointstradingcompany.com/#contact"  target="_blank">contact</a></li>
+        </ul>
+    </div><!-- /.full menu --> 
+</nav>
+
+<!-- <div class="logo-container"> -->
+    <img src="assets/img/fivepoints_white.png" class="logo logo-top">  
+    <img src="assets/img/uncap_the_world.png" class="logo logo-middle"> 
+<!-- </div>  -->  
+
+<div id="front-app">
+
+    <component :is="active_view"></component>
+
+</div>
+
+
+<footer class="footer-email-gate">
+        <p>© 2018 Five Points Trading Company, White Plains, NY.</p>
+        <p>All Rights Reserved</p>
+        <p>
+            <span><a href="http://fivepointstradingcompany.com/privacy_policy.html#our_adv" target="_blank">About Our Ads</a></span>
+            <span><a href="http://fivepointstradingcompany.com/privacy_policy.html" target="_blank">Privacy Policy</a></span>
+            <span><a href="http://fivepointstradingcompany.com/terms.html" target="_blank">Terms Of Use</a></span>
+        </p>
+</footer>
+
+<script src="assets/js/compiled/external.js"></script>
+<script src="assets/js/compiled/all.js"></script>
+</body>
+</html>
