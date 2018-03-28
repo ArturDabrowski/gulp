@@ -26,7 +26,7 @@ var vm = new Vue({
         })
         .catch(function (error) {
 
-        });
+        }); 
     }, 
     mounted: function () {
 

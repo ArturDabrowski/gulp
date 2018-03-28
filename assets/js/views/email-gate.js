@@ -16,7 +16,7 @@ Vue.component('email-gate', {
             </div>
             <div class="checks">
                 <input type="checkbox" class="checks" id="terms" name="tc_accepted"  value="true"/>
-                <label for="terms">I agree to the <a href="#" target="_blank">Terms & Conditions</a></label>
+                <label for="terms">I agree to the <a href="#" target="_blank">Terms & Conditions</a></label> 
                 <input type="checkbox" id="email_optin" name="email_optin" value="true" /> 
                 <label for="email_optin">Sign me up to receive news and offers via email from Five Points Trading Company</label>
             </div>

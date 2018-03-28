@@ -10,10 +10,10 @@ Vue.component('first-view', {
                     <img src="../../assets/img/red-stripe.png" class="imgNoneColor" >      
                     <div class="question">{{questions[0].question1[0].question}}</div>  
                     <div class="checks answersBox">
-                        <div v-for="v in questions[0].question1.answers" id="myForm"> 
-                            <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()">
-                            <label for="questionOne">{{v.answer}}</label>
-                        </div>
+                        <div v-for="v in questions[0].question1.answers"> 
+                            <input type="checkbox" class="chk1" :value="v.answer" :id="v.answer" @change="checkboxes()">
+                            <label :for="v.answer">{{v.answer}}</label>  
+                        </div> 
                     </div>
                     <div class="button button-submit">
                         <button @click="sendAnswers('rs')" class="submitButton questionFormButton">Send</button> 
@@ -25,9 +25,9 @@ Vue.component('first-view', {
                     <img src="../../assets/img/moretti.png" class="imgNoneColor">   
                     <div class="question">{{questions[1].question2[0].question}}</div>
                     <div class="checks answersBox"> 
-                        <div v-for="v in questions[1].question2.answers" id="myForm">  
-                            <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()"/>
-                            <label for="questionOne">{{v.answer}}</label>  
+                        <div v-for="v in questions[1].question2.answers" >  
+                            <input type="checkbox" class="chk2" :value="v.answer" :id="v.answer" @change="checkboxes()"/>
+                            <label :for="v.answer">{{v.answer}}</label>  
                         </div> 
                     </div>
                     <div class="button button-submit"> 
@@ -39,9 +39,9 @@ Vue.component('first-view', {
                     <img src="../../assets/img/tiger.png" class="imgNoneColor">   
                     <div class="question">{{questions[2].question3[0].question}}</div>
                     <div class="checks answersBox"> 
-                        <div v-for="v in questions[2].question3.answers" id="myForm" class="checks">
-                            <input type="checkbox" class="chk" :value="v.answer" @change="checkboxes()"/>
-                            <label for="questionOne">{{v.answer}}</label>  
+                        <div v-for="v in questions[2].question3.answers" class="checks">
+                            <input type="checkbox" class="chk3" :value="v.answer" :id="v.answer"  @change="checkboxes()"/>
+                            <label :for="v.answer">{{v.answer}}</label>  
                         </div>
                     </div>  
                     <div class="button button-submit">  
@@ -50,8 +50,11 @@ Vue.component('first-view', {
                 </div>
             </div> 
             <div class="bottlesContainer">
-                <div>
-                    <img src="/assets/img/right_arrow.png" @click="changeBottle" class="arrow">
+                <div class="bottleCenterContainer">
+                    <img src="/assets/img/right_arrow.png" @click="changeBottleRight" class="arrow arrow-right arrow-white">
+                    <img src="/assets/img/right_arrow_grey.png" @click="changeBottleRight" class="arrow arrow-right arrow-grey">
+                    <img src="/assets/img/right_arrow.png" @click="changeBottleLeft" class="arrow arrow-left arrow-white">
+                    <img src="/assets/img/right_arrow_grey.png" @click="changeBottleLeft" class="arrow arrow-left arrow-grey">
                     <!-- <img src="/assets/img/right_arrow.png"> -->
                     <img src="/assets/img/red-stripe-bottle.png" class="bottleCenter" :class="i==0?'bottleVisible':'bottleInvisible'"> 
                     <img src="/assets/img/tiger-bottle.png" class="bottleCenter" :class="i==1?'bottleVisible':'bottleInvisible'">
@@ -70,14 +73,26 @@ Vue.component('first-view', {
             </div> 
         </div> 
         <div class="bottomSection">
-                <div>
-                     
+                <div class="bottomSectionDescription" v-if="i==0">  
+                     <h2><b>RED STRIPE</b></h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda autem cum dicta dolorem earum eligendi eos explicabo magnam magni molestias odio officiis omnis provident quas quasi quis quod ratione rerum sunt, tenetur vitae! Amet consequuntur cupiditate exercitationem labore omnis pariatur quibusdam quos velit veniam voluptates. Est, eveniet magnam, minima natus necessitatibus neque numquam obcaecati quaerat quis recusandae saepe tenetur veniam. Autem expedita inventore laudantium quam quo. Animi cumque eos exercitationem .</p>
+                     <h2><b>ABOUT US</b></h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi debitis eum incidunt minima saepe sequi vitae voluptate? Ab at consectetur corporis deleniti dignissimos doloribus, error expedita facilis hic id impedit inventore magni necessitatibus nostrum optio possimus quidem ratione reprehenderit repudiandae sint sit totam voluptas voluptates. Alias architecto at blanditiis cum cupiditate dolor dolores exercitationem explicabo fuga repellendus! Accusantium cum cupiditate, dicta doloremque dolores eligendi, eveniet facilis minima molestiae pariatur perferendis praesentium reprehenderit vero? Accusamus ex, ipsam minima molestias nemo neque qui! Architecto, assumenda beatae consequatur corporis delectus dolore, doloribus, eos natus necessitatibus pariatur praesentium ratione repellat vero voluptatem voluptates.</p>
+                     <img src="/assets/img/red_stripe_post_card.png">
                 </div> 
-                <div class="">  
-                    
+                <div class="bottomSectionDescription" v-else-if="i==1">  
+                <h2><b>TIGER</b></h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda autem cum dicta dolorem earum eligendi eos explicabo magnam magni molestias odio officiis omnis provident quas quasi quis quod ratione rerum sunt, tenetur vitae! Amet consequuntur cupiditate exercitationem labore omnis pariatur quibusdam quos velit veniam voluptates. Est, eveniet magnam, minima natus necessitatibus neque numquam obcaecati quaerat quis recusandae saepe tenetur veniam. Autem expedita inventore laudantium quam quo. Animi cumque eos exercitationem .</p>
+                     <h2><b>ABOUT US</b></h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi debitis eum incidunt minima saepe sequi vitae voluptate? Ab at consectetur corporis deleniti dignissimos doloribus, error expedita facilis hic id impedit inventore magni necessitatibus nostrum optio possimus quidem ratione reprehenderit repudiandae sint sit totam voluptas voluptates. Alias architecto at blanditiis cum cupiditate dolor dolores exercitationem explicabo fuga repellendus! Accusantium cum cupiditate, dicta doloremque dolores eligendi, eveniet facilis minima molestiae pariatur perferendis praesentium reprehenderit vero? Accusamus ex, ipsam minima molestias nemo neque qui! Architecto, assumenda beatae consequatur corporis delectus dolore, doloribus, eos natus necessitatibus pariatur praesentium ratione repellat vero voluptatem voluptates.</p>
+                     <img src="/assets/img/tiger_post_card.png">
                 </div>
-                <div class="">
-                    
+                <div class="bottomSectionDescription" v-else> 
+                <h2><b>BIRRA MORETTI</b></h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda autem cum dicta dolorem earum eligendi eos explicabo magnam magni molestias odio officiis omnis provident quas quasi quis quod ratione rerum sunt, tenetur vitae! Amet consequuntur cupiditate exercitationem labore omnis pariatur quibusdam quos velit veniam voluptates. Est, eveniet magnam, minima natus necessitatibus neque numquam obcaecati quaerat quis recusandae saepe tenetur veniam. Autem expedita inventore laudantium quam quo. Animi cumque eos exercitationem .</p>
+                     <h2><b>ABOUT US</b></h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi debitis eum incidunt minima saepe sequi vitae voluptate? Ab at consectetur corporis deleniti dignissimos doloribus, error expedita facilis hic id impedit inventore magni necessitatibus nostrum optio possimus quidem ratione reprehenderit repudiandae sint sit totam voluptas voluptates. Alias architecto at blanditiis cum cupiditate dolor dolores exercitationem explicabo fuga repellendus! Accusantium cum cupiditate, dicta doloremque dolores eligendi, eveniet facilis minima molestiae pariatur perferendis praesentium reprehenderit vero? Accusamus ex, ipsam minima molestias nemo neque qui! Architecto, assumenda beatae consequatur corporis delectus dolore, doloribus, eos natus necessitatibus pariatur praesentium ratione repellat vero voluptatem voluptates.</p>
+                     <img src="/assets/img/5_points_elements-08.png">
                 </div> 
             </div> 
         <div>{{error_text}}</div>
@@ -149,23 +164,36 @@ Vue.component('first-view', {
 
         },
         checkboxes: function(){
-            $('input.chk').on('change', function() {                 
-                $('input.chk').not(this).prop('checked', false);  
+            $('input.chk1').on('change', function() {                 
+                $('input.chk1').not(this).prop('checked', false);  
             });
-        },
-            changeBottle: function(){
+            $('input.chk2').on('change', function() {                 
+                $('input.chk2').not(this).prop('checked', false);  
+            });
+            $('input.chk3').on('change', function() {                 
+                $('input.chk3').not(this).prop('checked', false);  
+            });
+        }, 
+            changeBottleLeft: function(){
                 if(this.i < 2){
                     this.i++
                 } else {
                     this.i = 0; 
                 }
-            }
+            },
+            changeBottleRight: function(){
+                if(this.i > 0){
+                    this.i--;
+                } else if (this.i === 0) {
+                    this.i = 2;  
+                }  
+            },
     }, 
     watch:{},
     created: function () {}, 
     mounted: function () { 
         var scope = this;
-   
+    
         axios.get(api_route + '/questions')
             .then(function (response) {
                 scope.questions = response.data['data'];

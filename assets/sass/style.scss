@@ -188,6 +188,7 @@ footer {
   bottom: 0; 
   right: 0; 
   text-align: center;
+  background-color: #1a1a1a; 
 }
 
 @media screen and (min-width: 769px) {
@@ -289,24 +290,15 @@ footer {
   position: relative; 
   @include orangeBarMobile();
   min-height: 70rem;  
-
-  .bottleLeftContainer,
-  .bottleRightContainer {
-    display: none; 
-  }
    
   @media screen and (min-width: 769px){
     @include orangeBar(); 
-    .bottleLeftContainer,
-    .bottleRightContainer {
-      display: block;  
-    }
   } 
 }
 .questionsContainer{ 
   text-align: center;  
-  width: 100%; 
-  margin: 0 auto 30rem;  
+  width: 100%;  
+  padding: 1rem; 
 }   
 .questionBox {
   min-height: 25rem; 
@@ -367,15 +359,23 @@ footer {
   z-index: 5; 
   height: 4.5rem;  
   position: absolute;  
-  bottom: 10%;  
-  left: calc(50% + 10rem); 
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%); 
-  transition: all .3s;
-} 
+  bottom: 3%; 
+  &.arrow-right {
+    left: calc(50% + 15rem); 
+    transform: translateX(-50%) ; 
+  }
+  &.arrow-left {
+    left: calc(50% - 15rem);  
+    transform: translateX(-50%) rotate(180deg); 
+  } 
+  transition: all .3s; 
+  &.arrow-grey { 
+    display: none;
+  }
+}  
 .bottleCenter {
   position: absolute;
-    bottom: -15%;  
+    bottom: -24%;   
     left: 50%; 
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%); 
@@ -398,17 +398,31 @@ footer {
   transition: all .3s; 
 }
 
-.bottleVisible {
+.bottleVisible { 
   opacity: 1;
 }
 .bottleInvisible {
   opacity: 0;
+}
+.bottleLeftContainer,
+.bottleRightContainer {
+  display: block; 
 }
 
 .bottomSection {
   min-height: 100rem;
   width: 100%; 
   background-color: #fff; 
+  color: #333; 
+  text-align: center; 
+}
+.bottomSectionDescription{
+  padding-top: 17rem; 
+  max-width: 100rem;
+  margin: 0 auto;  
+}
+.bottomSectionDescription > *{
+  padding:1.5rem;   
 }
 
 @media screen and (max-width: 1040px){
@@ -417,5 +431,26 @@ footer {
     display: block;
     margin: 2rem auto; 
   }  
-}
+  .bottleLeftContainer,
+  .bottleRightContainer { 
+    display: none;  
+  }
+  .arrow {
+    bottom: -28%;  
+    &.arrow-white {
+      display: none;
+    }
+    &.arrow-grey {
+      display: block; 
+    }
+  }   
+  .bottleCenter {
+      bottom: -41%;  
+  } 
+
+  .bottomSectionDescription{ 
+    padding-top: 55rem;  
+  }
+
+}   
    
