@@ -18,7 +18,7 @@ var vm = new Vue({
     watch:{
 
     },
-    created: function () {
+    created: function () {  
         axios.get(api_route + '/entry')
         .then(function (response) {
             // console.log(response);
@@ -31,8 +31,9 @@ var vm = new Vue({
     mounted: function () {
 
 
-        $('.mobile-nav-ico').on('click', function(){
+        $('.mobile-nav-ico').on('click', function(){ 
             $('.full-menu').toggleClass('open');   
+            $('body').toggleClass('bodyOverflowHidden');   
         }) 
 
     }

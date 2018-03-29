@@ -74,28 +74,39 @@ Vue.component('first-view', {
         </div> 
         <div class="bottomSection">
                 <div class="bottomSectionDescription" v-if="i==0">  
-                     <h2><b>RED STRIPE</b></h2>
+                     <h2><strong>RED STRIPE</strong></h2>
                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda autem cum dicta dolorem earum eligendi eos explicabo magnam magni molestias odio officiis omnis provident quas quasi quis quod ratione rerum sunt, tenetur vitae! Amet consequuntur cupiditate exercitationem labore omnis pariatur quibusdam quos velit veniam voluptates. Est, eveniet magnam, minima natus necessitatibus neque numquam obcaecati quaerat quis recusandae saepe tenetur veniam. Autem expedita inventore laudantium quam quo. Animi cumque eos exercitationem .</p>
-                     <h2><b>ABOUT US</b></h2>
+                     <h2><b>ABOUT US</b></h2> 
                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi debitis eum incidunt minima saepe sequi vitae voluptate? Ab at consectetur corporis deleniti dignissimos doloribus, error expedita facilis hic id impedit inventore magni necessitatibus nostrum optio possimus quidem ratione reprehenderit repudiandae sint sit totam voluptas voluptates. Alias architecto at blanditiis cum cupiditate dolor dolores exercitationem explicabo fuga repellendus! Accusantium cum cupiditate, dicta doloremque dolores eligendi, eveniet facilis minima molestiae pariatur perferendis praesentium reprehenderit vero? Accusamus ex, ipsam minima molestias nemo neque qui! Architecto, assumenda beatae consequatur corporis delectus dolore, doloribus, eos natus necessitatibus pariatur praesentium ratione repellat vero voluptatem voluptates.</p>
-                     <img src="/assets/img/red_stripe_post_card.png">
+                     <div class="bottomSectionImgContainer">
+                        <img class="bottomSectionImg" src="/assets/img/red_stripe_post_card.png">
+                     </div>
                 </div> 
                 <div class="bottomSectionDescription" v-else-if="i==1">  
                 <h2><b>TIGER</b></h2>
                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda autem cum dicta dolorem earum eligendi eos explicabo magnam magni molestias odio officiis omnis provident quas quasi quis quod ratione rerum sunt, tenetur vitae! Amet consequuntur cupiditate exercitationem labore omnis pariatur quibusdam quos velit veniam voluptates. Est, eveniet magnam, minima natus necessitatibus neque numquam obcaecati quaerat quis recusandae saepe tenetur veniam. Autem expedita inventore laudantium quam quo. Animi cumque eos exercitationem .</p>
                      <h2><b>ABOUT US</b></h2>
                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi debitis eum incidunt minima saepe sequi vitae voluptate? Ab at consectetur corporis deleniti dignissimos doloribus, error expedita facilis hic id impedit inventore magni necessitatibus nostrum optio possimus quidem ratione reprehenderit repudiandae sint sit totam voluptas voluptates. Alias architecto at blanditiis cum cupiditate dolor dolores exercitationem explicabo fuga repellendus! Accusantium cum cupiditate, dicta doloremque dolores eligendi, eveniet facilis minima molestiae pariatur perferendis praesentium reprehenderit vero? Accusamus ex, ipsam minima molestias nemo neque qui! Architecto, assumenda beatae consequatur corporis delectus dolore, doloribus, eos natus necessitatibus pariatur praesentium ratione repellat vero voluptatem voluptates.</p>
-                     <img src="/assets/img/tiger_post_card.png">
+                     <div class="bottomSectionImgContainer">
+                        <img class="bottomSectionImg" src="/assets/img/tiger_post_card.png">
+                     </div>
                 </div>
                 <div class="bottomSectionDescription" v-else> 
                 <h2><b>BIRRA MORETTI</b></h2>
                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda autem cum dicta dolorem earum eligendi eos explicabo magnam magni molestias odio officiis omnis provident quas quasi quis quod ratione rerum sunt, tenetur vitae! Amet consequuntur cupiditate exercitationem labore omnis pariatur quibusdam quos velit veniam voluptates. Est, eveniet magnam, minima natus necessitatibus neque numquam obcaecati quaerat quis recusandae saepe tenetur veniam. Autem expedita inventore laudantium quam quo. Animi cumque eos exercitationem .</p>
                      <h2><b>ABOUT US</b></h2>
                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi debitis eum incidunt minima saepe sequi vitae voluptate? Ab at consectetur corporis deleniti dignissimos doloribus, error expedita facilis hic id impedit inventore magni necessitatibus nostrum optio possimus quidem ratione reprehenderit repudiandae sint sit totam voluptas voluptates. Alias architecto at blanditiis cum cupiditate dolor dolores exercitationem explicabo fuga repellendus! Accusantium cum cupiditate, dicta doloremque dolores eligendi, eveniet facilis minima molestiae pariatur perferendis praesentium reprehenderit vero? Accusamus ex, ipsam minima molestias nemo neque qui! Architecto, assumenda beatae consequatur corporis delectus dolore, doloribus, eos natus necessitatibus pariatur praesentium ratione repellat vero voluptatem voluptates.</p>
-                     <img src="/assets/img/5_points_elements-08.png">
+                     <div class="bottomSectionImgContainer">  
+                        <img class="bottomSectionImg" src="/assets/img/5_points_elements-08.png"> 
+                     </div>
+                </div>   
+                <div class="bottomBtnSectionContainer">  
+                    <button  class="bottomSectionBtn" @click="bottomButtons(0)"></button>  
+                    <button  class="bottomSectionBtn" @click="bottomButtons(1)"></button> 
+                    <button  class="bottomSectionBtn" @click="bottomButtons(2)"></button>
                 </div> 
-            </div> 
-        <div>{{error_text}}</div>
+            </div>  
+        <div>{{error_text}}</div>  
     </div>   
     `,
     mixins: [data_mixin],   
@@ -188,11 +199,20 @@ Vue.component('first-view', {
                     this.i = 2;  
                 }  
             },
-    }, 
+            bottomButtons: function(param){
+                if (param === 0) {
+                    this.i = 0
+                } else if (param === 1) { 
+                    this.i =1  
+                } else {
+                    this.i = 2  
+                } 
+            } 
+    },  
     watch:{},
     created: function () {}, 
     mounted: function () { 
-        var scope = this;
+        var scope = this; 
     
         axios.get(api_route + '/questions')
             .then(function (response) {
